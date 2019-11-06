@@ -26,7 +26,11 @@ export class CalcolatriceComponent {
 
   funzione(fun: string) {
     switch(fun) {
-      case 'reverse': this.expression = '-' + this.expression; break;
+      case 'reverse': {
+        if(this.expression.startsWith('-')) this.expression = this.expression.replace('-', '+')
+        else if(this.expression.startsWith('+'))this.expression = this.expression.replace('+', '-')
+        else this.expression = '-' + this.expression
+      }; break;
       case 'C': this.expression = ''; break;
       case 'undo': this.expression = this.expression.substr(0, this.expression.length - 1); break;
     }
