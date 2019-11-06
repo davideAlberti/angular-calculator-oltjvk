@@ -2,6 +2,13 @@
   <input type="text" class="form-control input" disabled [(ngModel)]="expression">
 
   <div>
+    <button class="btn col-3 border" (click)="aggiungi('(')">(</button>
+    <button class="btn col-3 border" (click)="aggiungi(')')">)</button>
+    <button class="btn col-3 border" (click)="aggiungi('[')">[</button>
+    <button class="btn col-3 border" (click)="aggiungi(']')">]</button>
+  </div>
+
+  <div>
     <button class="btn col-3 border" (click)="funzione('C')">CE</button>
     <button class="btn col-3 border" (click)="funzione('C')">C</button>
     <button class="btn col-3 border" (click)="funzione('undo')">←</button>
@@ -40,17 +47,17 @@
 
   <div *ngIf="more">
     <div>
-      <button class="btn col-3 border" (click)="funzione('reverse')">x²</button>
-      <button class="btn col-3 border" (click)="aggiungi('0')">1/x</button>
-      <button class="btn col-3 border" (click)="aggiungi('.')">&#8730;</button>
-      <button class="btn col-3 border" (click)="calcola()">log</button>
+      <button class="btn col-3 border" (click)="funzione('sqr')">x²</button>
+      <button class="btn col-3 border" (click)="funzione('x')">1/x</button>
+      <button class="btn col-3 border" (click)="funzione('rad')">&#8730;</button>
+      <button class="btn col-3 border" (click)="funzione('log')">log</button>
     </div>
 
     <div>
-      <button class="btn col-3 border" (click)="funzione('reverse')">sin</button>
-      <button class="btn col-3 border" (click)="aggiungi('0')">cos</button>
-      <button class="btn col-3 border" (click)="aggiungi('.')">tan</button>
-      <button class="btn col-3 border" (click)="aggiungi('.')">&pi;</button>
+      <button class="btn col-3 border" (click)="funzione('sin')">sin</button>
+      <button class="btn col-3 border" (click)="funzione('cos')">cos</button>
+      <button class="btn col-3 border" (click)="funzione('tan')">tan</button>
+      <button class="btn col-3 border" (click)="funzione('pi')">&pi;</button>
     </div>
   </div>
 </div>
