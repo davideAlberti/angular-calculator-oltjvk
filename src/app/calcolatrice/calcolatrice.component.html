@@ -2,15 +2,20 @@
   <input type="text" class="form-control input" disabled [(ngModel)]="expression">
 
   <div>
-    <button class="btn col-3 border" (click)="aggiungi('(')">(</button>
-    <button class="btn col-3 border" (click)="aggiungi(')')">)</button>
-    <button class="btn col-3 border" (click)="aggiungi('[')">[</button>
-    <button class="btn col-3 border" (click)="aggiungi(']')">]</button>
+    <button class="btn col-6 border" (click)="session()">M+</button>
+    <button class="btn col-6 border" (click)="clear()">MC</button>
   </div>
 
   <div>
     <button class="btn col-3 border" (click)="funzione('C')">CE</button>
     <button class="btn col-3 border" (click)="funzione('C')">C</button>
+    <button class="btn col-3 border" (click)="aggiungi('[')">[</button>
+    <button class="btn col-3 border" (click)="aggiungi(']')">]</button>
+  </div>
+
+  <div>
+    <button class="btn col-3 border" (click)="aggiungi('(')">(</button>
+    <button class="btn col-3 border" (click)="aggiungi(')')">)</button>
     <button class="btn col-3 border" (click)="funzione('undo')">←</button>
     <button class="btn col-3 border" (click)="aggiungi('/')">/</button>
   </div>
@@ -43,21 +48,42 @@
     <button class="btn col-3 border" (click)="calcola()">=</button>
   </div>
 
-  <br /><button class="btn col-12 border" (click)="more = !more">More</button><br /><br />
+  <br /><button class="btn col-12 border" disabled>More</button><br /><br />
 
-  <div *ngIf="more">
+  <div>
     <div>
-      <button class="btn col-3 border" (click)="funzione('sqr')">x²</button>
-      <button class="btn col-3 border" (click)="funzione('x')">1/x</button>
-      <button class="btn col-3 border" (click)="funzione('rad')">&#8730;</button>
-      <button class="btn col-3 border" (click)="funzione('log')">log</button>
+      <button class="btn col-3 border" (click)="aggiungi('²')" disabled>x²</button>
+      <button class="btn col-3 border" (click)="aggiungi('1/(')">1/x</button>
+      <button class="btn col-3 border" (click)="aggiungi('√(')">&#8730;</button>
+      <button class="btn col-3 border" (click)="aggiungi('π')">&pi;</button>
     </div>
 
     <div>
-      <button class="btn col-3 border" (click)="funzione('sin')">sin</button>
-      <button class="btn col-3 border" (click)="funzione('cos')">cos</button>
-      <button class="btn col-3 border" (click)="funzione('tan')">tan</button>
-      <button class="btn col-3 border" (click)="funzione('pi')">&pi;</button>
+      <button class="btn col-3 border" (click)="aggiungi('sin(')">sin</button>
+      <button class="btn col-3 border" (click)="aggiungi('cos(')">cos</button>
+      <button class="btn col-3 border" (click)="aggiungi('tan(')">tan</button>
+      <button class="btn col-3 border" (click)="aggiungi('log(')">log</button>
     </div>
+
+    <div>
+      <button class="btn col-3 border" (click)="aggiungi('arcsin(')">sin<sup>-1</sup></button>
+      <button class="btn col-3 border" (click)="aggiungi('arccos(')">cos<sup>-1</sup></button>
+      <button class="btn col-3 border" (click)="aggiungi('arctan(')">tan<sup>-1</sup></button>
+      <button class="btn col-3 border" (click)="aggiungi('10^(')">10<sup>x</sup></button>
+    </div>
+
+    <div>
+      <button class="btn col-3 border" (click)="aggiungi('|')" disabled>| x |</button>
+      <button class="btn col-3 border" (click)="aggiungi('!')" disabled>x!</button>
+      <button class="btn col-3 border" (click)="aggiungi(')√(')" disabled><sup>y</sup>&#8730;x</button>
+      <button class="btn col-3 border" (click)="aggiungi(')^(')" disabled>x<sup>y</sup></button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="display-3">Memoria</div>
+  <div *ngFor="let item of get()">
+    <button class="btn" (click)="expression = item" (contextmenu)="del(item)">{{ item }}</button>
   </div>
 </div>
