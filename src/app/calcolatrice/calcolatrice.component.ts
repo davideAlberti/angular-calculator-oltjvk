@@ -68,13 +68,7 @@ export class CalcolatriceComponent {
   }
 
   del(item) {
-    for( var i = 0; i < this.memory.length; i++){ 
-      if (this.memory[i] == item) {
-      this.memory.splice(i, 1); 
-    }
-  }
-    console.log(this.memory)
-    return false
+    for( var i = 0; i < this.memory.length; i++) if (this.memory[i] == item) this.memory.splice(i, 1); return false
   }
 
   clear() {
