@@ -68,11 +68,11 @@ export class CalcolatriceComponent {
   }
 
   del(item) {
-    for( var i = 0; i < arr.length; i++){ 
-      if ( arr[i] === 5) {
-      arr.splice(i, 1); 
+    for( var i = 0; i < this.memory.length; i++){ 
+      if (this.memory[i] == item) {
+      this.memory.splice(i, 1); 
     }
-}
+  }
     console.log(this.memory)
     return false
   }
