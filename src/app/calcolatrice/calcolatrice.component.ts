@@ -8,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 export class CalcolatriceComponent {
   expression: string = '';
   memory: string[] = []
+  parTonda: number = null
+  parQuadra: number = null
 
   constructor() { }
 
   aggiungi(carattere: string) {
     var lastChar: string = this.expression.charAt(this.expression.length - 1)
 
-    if(this.isOperator(lastChar) && this.isOperator(carattere)) {
-      carattere = ''
+    if(this.isOperator(lastChar) && this.isOperator(carattere)) carattere = ''
+    if(carattere == '(') this.parTonda++
+    if(carattere == ')') {
+      this.parTonda--
+      if(this.parTonda < 0) carattere = '';
+      if(this.parTonda <= 0) this.parTonda = null
+    }
+    if(carattere == '[') this.parQuadra++
+    if(carattere == ']') {
+      this.parQuadra--
+      if(this.parQuadra < 0)  carattere = ''
+      if(this.parQuadra <= 0) this.parQuadra = null;
     }
 
     this.expression += carattere

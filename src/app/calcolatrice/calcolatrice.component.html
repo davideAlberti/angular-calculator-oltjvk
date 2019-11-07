@@ -2,19 +2,19 @@
   <input type="text" class="form-control input" disabled [(ngModel)]="expression">
 
   <div>
-    <button class="btn col-6 border" (click)="session()">M+</button>
+    <button class="btn col-6 border" (click)="session()" [disabled]="expression == ''">M+</button>
     <button class="btn col-6 border" (click)="clear()" [disabled]="memory.length == 0">MC</button>
   </div>
 
   <div>
     <button class="btn col-3 border" (click)="funzione('C')">CE</button>
     <button class="btn col-3 border" (click)="funzione('C')">C</button>
-    <button class="btn col-3 border" (click)="aggiungi('[')">[</button>
+    <button class="btn col-3 border" (click)="aggiungi('[')">[ <sub>{{ parQuadra }}</sub></button>
     <button class="btn col-3 border" (click)="aggiungi(']')">]</button>
   </div>
 
   <div>
-    <button class="btn col-3 border" (click)="aggiungi('(')">(</button>
+    <button class="btn col-3 border" (click)="aggiungi('(')">( <sub>{{ parTonda }}</sub></button>
     <button class="btn col-3 border" (click)="aggiungi(')')">)</button>
     <button class="btn col-3 border" (click)="funzione('undo')">←</button>
     <button class="btn col-3 border" (click)="aggiungi('/')">/</button>
@@ -52,7 +52,7 @@
 
   <div>
     <div>
-      <button class="btn col-3 border" (click)="aggiungi('²')" disabled>x²</button>
+      <button class="btn col-3 border" (click)="funzione('2')" disabled>x²</button>
       <button class="btn col-3 border" (click)="aggiungi('1/(')">1/x</button>
       <button class="btn col-3 border" (click)="aggiungi('√(')">&#8730;</button>
       <button class="btn col-3 border" (click)="aggiungi('π')">&pi;</button>
