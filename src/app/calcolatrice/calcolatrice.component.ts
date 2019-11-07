@@ -26,15 +26,15 @@ export class CalcolatriceComponent {
 
     if(this.isOperator(lastChar)) this.funzione('undo') 
     if(this.expression.includes('sin(')) {
-      if(this.expression.includes('arc')) this.expression = this.expression.replace('arcsin(', 'Math.asin(')
+      if(this.expression.includes('arc')) this.expression = this.expression.replace('arcsin(', 'Math.asin(Math.PI / 180 * ')
       else this.expression = this.expression.replace('sin(', 'Math.sin(Math.PI / 180 * ')
     }
     if(this.expression.includes('cos(')) {
-      if(this.expression.includes('arc')) this.expression = this.expression.replace('arcsin(', 'Math.acos(')
+      if(this.expression.includes('arc')) this.expression = this.expression.replace('arcsin(', 'Math.acos(Math.PI / 180 * ')
       else this.expression = this.expression = this.expression.replace('cos(', 'Math.cos(Math.PI / 180 * ')
     }
     if(this.expression.includes('tan(')) {
-      if(this.expression.includes('arc')) this.expression = this.expression.replace('arctan(', 'Math.atan(')
+      if(this.expression.includes('arc')) this.expression = this.expression.replace('arctan(', 'Math.atan(Math.PI / 180 * ')
       else this.expression = this.expression.replace('tan(', 'Math.tan(Math.PI / 180 * ')
     }
     if(this.expression.includes('π')) this.expression = this.expression.replace('π', 'Math.PI')
