@@ -83,7 +83,7 @@
 
 <div class="container">
   <div class="display-3">Memoria</div>
-  <div *ngFor="let item of get()">
+  <div *ngFor="let item of memory">
     <button class="btn" (click)="expression = item" (contextmenu)="del(item)">{{ item }}</button>
   </div>
 </div>

@@ -65,25 +65,19 @@ export class CalcolatriceComponent {
 
   session() {
     this.memory.push(this.expression)
-    this.setSession(this.memory.toString())
-  }
-
-  get() {
-    if(!!sessionStorage.getItem('memory')) return sessionStorage.getItem('memory').split(',')
   }
 
   del(item) {
-    this.memory = this.get()
-    delete this.memory[this.memory.indexOf(item)]
-    this.setSession(this.memory)
+    for( var i = 0; i < arr.length; i++){ 
+      if ( arr[i] === 5) {
+      arr.splice(i, 1); 
+    }
+}
+    console.log(this.memory)
     return false
   }
 
-  setSession(item) {
-    sessionStorage.setItem('memory', item)
-  }
-
   clear() {
-    sessionStorage.removeItem('memory')
+    this.memory.length = 0;
   }
 }
